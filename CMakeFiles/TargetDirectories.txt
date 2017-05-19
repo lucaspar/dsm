@@ -1,0 +1,5 @@
+/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/rebuild_cache.dir
+/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/edit_cache.dir
+/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/lmcomp.dir
+/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/server.dir
+/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/client.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -g   CMakeFiles/mcomp-server.dir/server.cpp.o CMakeFiles/mcomp-server.dir/loader.cpp.o CMakeFiles/mcomp-server.dir/sma.cpp.o  -o mcomp-server -rdynamic 

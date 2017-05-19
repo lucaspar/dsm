@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -g   CMakeFiles//home/lucas/work/furg/distribuidos_sistemas/trabalho1/server.dir/server.cpp.o  -o /home/lucas/work/furg/distribuidos_sistemas/trabalho1/server -rdynamic -lloader.h -lloader.cpp -lsma.cpp -lsma.h 

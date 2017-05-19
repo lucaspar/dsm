@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblmcomp.a  CMakeFiles/lmcomp.dir/loader.cpp.o CMakeFiles/lmcomp.dir/sma.cpp.o CMakeFiles/lmcomp.dir/logger.cpp.o CMakeFiles/lmcomp.dir/SHMessage.cpp.o
+/usr/bin/ranlib liblmcomp.a
