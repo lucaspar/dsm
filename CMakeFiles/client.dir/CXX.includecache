@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/client.cpp
+/home/lucas/work/furg/distribuidos_sistemas/dsm/client.cpp
 iostream
 -
 loader.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 sma.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 vector
 -
 string
 -
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
 iostream
 -
 sstream
 -
 loader.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 sma.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
 

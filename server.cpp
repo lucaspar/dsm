@@ -11,6 +11,10 @@ int main() {
     // Allocate shared memory
     interface.byteMe((size_t) config.sharedBytes);
 
+    // Clear memory
+    interface.clearMemory();
+    interface.logMemory();
+
     // Wait for new connections:
     interface.recv();
 

@@ -65,8 +65,8 @@ _____
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
-| Cliente         | Lê .config, escolhe servidor, data struct, serializa, envia para servidor
-| Servidor        | Lê .config, recebe dados, de-serializa, opera sobre memória compartilhada
+| Cliente         | Lê .config, divide mensagem, escolhe servidor, monta estrutura de dados, serializa, envia para servidor
+| Servidor        | Lê .config, recebe dados, desserializa, salva em memória compartilhada
 | Comunicação     | Sockets entre cliente e servidor
 | Concorrência    | Abre nova thread para cada conexão
 | Snapshot        | Criado processo
@@ -75,8 +75,8 @@ _____
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
-| Cliente         | Dividir mensagens grandes entre servidores, construir pedidos de leitura e escrita.
+| Cliente         | Construir pedidos de leitura e escrita.
 | Servidor        | Atender pedidos de leitura e escrita. Salvar log de operações em disco (opcional)
 | Comunicação     | Comunicação via rede entre processos de snapshot
-| Concorrência    | Testar concorrência com ipc implementado
+| Concorrência    | -
 | Snapshot        | Lê memória compartilhada, envia para master, (master) recebe snapshots, (master) salva em disco

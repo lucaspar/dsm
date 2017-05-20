@@ -8,11 +8,11 @@ CMakeFiles/lmcomp.dir/SHMessage.cpp.o: loader.h
 CMakeFiles/lmcomp.dir/loader.cpp.o: loader.cpp
 CMakeFiles/lmcomp.dir/loader.cpp.o: loader.h
 
-CMakeFiles/lmcomp.dir/logger.cpp.o: loader.h
-CMakeFiles/lmcomp.dir/logger.cpp.o: logger.cpp
-
 CMakeFiles/lmcomp.dir/sma.cpp.o: SHMessage.h
 CMakeFiles/lmcomp.dir/sma.cpp.o: loader.h
 CMakeFiles/lmcomp.dir/sma.cpp.o: sma.cpp
 CMakeFiles/lmcomp.dir/sma.cpp.o: sma.h
+
+CMakeFiles/lmcomp.dir/snapshot.cpp.o: loader.h
+CMakeFiles/lmcomp.dir/snapshot.cpp.o: snapshot.cpp
 

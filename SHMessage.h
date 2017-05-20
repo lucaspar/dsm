@@ -18,10 +18,10 @@ public:
     const char * serialize();
     void deserialize(const char *serial);
 
+    int begPos;
 private:
     string message;
 
-    int begPos;
 };
 
 

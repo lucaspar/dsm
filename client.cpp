@@ -12,7 +12,7 @@ int main () {
     Config config = readConfig();
     log(config);
 
-    // Prepare message to send
+    // Prepare message to send and pick a random position in memory
     string message = "I'm sorry, Dave";
     int msgSize = (int) message.size();
     int totalShared = config.sharedBytes * config.nServers;
@@ -21,12 +21,12 @@ int main () {
     int endPos = begPos + msgSize + 1;          // position of last byte to send
 
     // Select servers (by index) to send data
-    int begServer = (int) ( begPos / (config.sharedBytes - 1) );
-    int endServer = (int) ( begServer + (msgSize / (config.sharedBytes - 1)) );
+    int begServerIndex = begPos / (config.sharedBytes - 1);
+    int endServerIndex = begServerIndex + (msgSize / (config.sharedBytes - 1));
 
-    // Write data using the API in sma.h
+    // Send data using the API
     SMA interface;
-    for (int s=begServer; s<=endServer; s++){
+    for (int s=begServerIndex; s<=endServerIndex; s++){
         string address = config.serverAddr[s];
         interface.send(address, begPos, message);
     }

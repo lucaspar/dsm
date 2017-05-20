@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.cpp
+/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.cpp
 iostream
 -
 cstring
 -
 SHMessage.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
 loader.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
 string
 -
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.cpp
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.cpp
 iostream
 -
 fstream
@@ -30,19 +30,15 @@ algorithm
 sstream
 -
 loader.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 vector
 -
 string
 -
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/logger.cpp
-loader.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
-
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.cpp
+/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp
 iostream
 -
 sstream
@@ -52,11 +48,11 @@ thread
 unistd.h
 -
 loader.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 sma.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
 SHMessage.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
 sys/socket.h
 -
 netinet/in.h
@@ -68,13 +64,17 @@ sys/ipc.h
 sys/shm.h
 -
 
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
 iostream
 -
 sstream
 -
 loader.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 sma.h
-/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
+
+/home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp
+loader.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 

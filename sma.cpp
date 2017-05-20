@@ -20,6 +20,10 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 
+// Suppressing a few warnings
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
+
 using namespace std;
 
 // SEND MESSAGE TO SERVERS
@@ -65,7 +69,7 @@ void SMA::send(string address, int begPos, string message) {
 
 };
 
-void tasker(int client_sockfd, SHMessage msg) {
+void tasker(int client_sockfd, SHMessage msg, SMA * interface) {
 
     log("\tThread created");
     sleep(1);
@@ -77,21 +81,24 @@ void tasker(int client_sockfd, SHMessage msg) {
     // read data
     char *serial = (char *) malloc(totalLength * sizeof(char));
     read(client_sockfd, serial, totalLength);
-
-    // log
     log("\tRead message of " + to_string(totalLength) + " bytes from client");
 
     // deserialize
     msg.deserialize((const char *) serial);
     string read_msg = "Message read by server.";
 
+    // save message to shared memory
+    interface->save(msg.getMessage().c_str(), msg.begPos, (int) msg.getMessage().size());
+
+    // send status to client
     //write(client_sockfd, &read_msg, read_msg.length());
+
     close(client_sockfd);
 
     log("\tThread finished");
 }
 
-// READ FROM CLIENTS
+// Receive requests from clients and start new threads
 void SMA::recv() {
 
     // Checks if memory was allocated
@@ -122,9 +129,8 @@ void SMA::recv() {
     log("NEW SERVER: " + string(server_address_string));
 
     // Receive from clients
-    //vector<thread> th_taskers;
     thread th_array[300];
-    for(int i=0; i<300; i++){
+    for(int i=0; true; i++){         // intentional endless loop
 
         log("[Server] Waiting for connection");
         client_len = sizeof(client_address);
@@ -137,8 +143,7 @@ void SMA::recv() {
 
         // FIRING THREAD
         SHMessage msg = SHMessage();
-        th_array[i] = thread(tasker, client_sockfd, msg);
-        //th_taskers.push_back(move(th_tasker));
+        th_array[i] = thread(tasker, client_sockfd, msg, this);
     }
 
     // Joining threads
@@ -162,13 +167,29 @@ void SMA::byteMe(size_t sharedSize) {
     // Attach the segment to our data space
     if ((shm = (char *) shmat(shmid, NULL, 0)) == (char *) -1) {
         perror("ERROR @SMA::byteMe() >>> SHMAT");
-        exit(1);
+        exit(2);
     }
 
     this->allocated = true;
     log("Allocated " + to_string(shmsz) + " bytes.");
 
 };
+
+// Save nbytes [1,k] bytes from ptr to shared memory starting at localStartPos [0,k-1]
+void SMA::save(const char * ptr, int localStartPos, int nbytes) {
+    char *s;
+    if(shmsz < localStartPos+nbytes){
+        log("ERROR @SMA::write() >>> Trying to fit "+to_string(localStartPos+nbytes)+"b in "+to_string(shmsz)+"b space.");
+        exit(3);
+    }
+    char * realStartPos = (this->shm)+localStartPos;
+    for (s = realStartPos; s - realStartPos < nbytes; s++){
+        *s = *ptr;
+        ptr++;
+    }
+    *s = '\0';                      // null termination
+    logMemory();
+}
 
 // Clear allocated memory with null characters
 void SMA::clearMemory() {
@@ -185,5 +206,8 @@ void SMA::logMemory() {
     for (s = shm; s - shm < shmsz; s++){
         printf("%c", *s);
         if ((s-shm) % 128 == 0) printf("\n");
+        if(*s == '\0') printf(".");
     }
+    printf("\n");
 }
+#pragma clang diagnostic pop
