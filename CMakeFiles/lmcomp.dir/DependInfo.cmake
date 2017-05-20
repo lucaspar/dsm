@@ -6,8 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/SHMessage.cpp.o"
   "/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/loader.cpp.o"
-  "/home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/logger.cpp.o"
   "/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/sma.cpp.o"
+  "/home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/snapshot.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

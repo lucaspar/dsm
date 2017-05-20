@@ -105,28 +105,28 @@ CMakeFiles/lmcomp.dir/sma.cpp.o.provides: CMakeFiles/lmcomp.dir/sma.cpp.o.requir
 CMakeFiles/lmcomp.dir/sma.cpp.o.provides.build: CMakeFiles/lmcomp.dir/sma.cpp.o
 
 
-CMakeFiles/lmcomp.dir/logger.cpp.o: CMakeFiles/lmcomp.dir/flags.make
-CMakeFiles/lmcomp.dir/logger.cpp.o: logger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lmcomp.dir/logger.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/logger.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp
+CMakeFiles/lmcomp.dir/snapshot.cpp.o: CMakeFiles/lmcomp.dir/flags.make
+CMakeFiles/lmcomp.dir/snapshot.cpp.o: snapshot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lmcomp.dir/snapshot.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/snapshot.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp
 
-CMakeFiles/lmcomp.dir/logger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmcomp.dir/logger.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp > CMakeFiles/lmcomp.dir/logger.cpp.i
+CMakeFiles/lmcomp.dir/snapshot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmcomp.dir/snapshot.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp > CMakeFiles/lmcomp.dir/snapshot.cpp.i
 
-CMakeFiles/lmcomp.dir/logger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmcomp.dir/logger.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp -o CMakeFiles/lmcomp.dir/logger.cpp.s
+CMakeFiles/lmcomp.dir/snapshot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmcomp.dir/snapshot.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp -o CMakeFiles/lmcomp.dir/snapshot.cpp.s
 
-CMakeFiles/lmcomp.dir/logger.cpp.o.requires:
+CMakeFiles/lmcomp.dir/snapshot.cpp.o.requires:
 
-.PHONY : CMakeFiles/lmcomp.dir/logger.cpp.o.requires
+.PHONY : CMakeFiles/lmcomp.dir/snapshot.cpp.o.requires
 
-CMakeFiles/lmcomp.dir/logger.cpp.o.provides: CMakeFiles/lmcomp.dir/logger.cpp.o.requires
-	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/logger.cpp.o.provides.build
-.PHONY : CMakeFiles/lmcomp.dir/logger.cpp.o.provides
+CMakeFiles/lmcomp.dir/snapshot.cpp.o.provides: CMakeFiles/lmcomp.dir/snapshot.cpp.o.requires
+	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/snapshot.cpp.o.provides.build
+.PHONY : CMakeFiles/lmcomp.dir/snapshot.cpp.o.provides
 
-CMakeFiles/lmcomp.dir/logger.cpp.o.provides.build: CMakeFiles/lmcomp.dir/logger.cpp.o
+CMakeFiles/lmcomp.dir/snapshot.cpp.o.provides.build: CMakeFiles/lmcomp.dir/snapshot.cpp.o
 
 
 CMakeFiles/lmcomp.dir/SHMessage.cpp.o: CMakeFiles/lmcomp.dir/flags.make
@@ -157,7 +157,7 @@ CMakeFiles/lmcomp.dir/SHMessage.cpp.o.provides.build: CMakeFiles/lmcomp.dir/SHMe
 lmcomp_OBJECTS = \
 "CMakeFiles/lmcomp.dir/loader.cpp.o" \
 "CMakeFiles/lmcomp.dir/sma.cpp.o" \
-"CMakeFiles/lmcomp.dir/logger.cpp.o" \
+"CMakeFiles/lmcomp.dir/snapshot.cpp.o" \
 "CMakeFiles/lmcomp.dir/SHMessage.cpp.o"
 
 # External object files for target lmcomp
@@ -165,7 +165,7 @@ lmcomp_EXTERNAL_OBJECTS =
 
 liblmcomp.a: CMakeFiles/lmcomp.dir/loader.cpp.o
 liblmcomp.a: CMakeFiles/lmcomp.dir/sma.cpp.o
-liblmcomp.a: CMakeFiles/lmcomp.dir/logger.cpp.o
+liblmcomp.a: CMakeFiles/lmcomp.dir/snapshot.cpp.o
 liblmcomp.a: CMakeFiles/lmcomp.dir/SHMessage.cpp.o
 liblmcomp.a: CMakeFiles/lmcomp.dir/build.make
 liblmcomp.a: CMakeFiles/lmcomp.dir/link.txt
@@ -180,7 +180,7 @@ CMakeFiles/lmcomp.dir/build: liblmcomp.a
 
 CMakeFiles/lmcomp.dir/requires: CMakeFiles/lmcomp.dir/loader.cpp.o.requires
 CMakeFiles/lmcomp.dir/requires: CMakeFiles/lmcomp.dir/sma.cpp.o.requires
-CMakeFiles/lmcomp.dir/requires: CMakeFiles/lmcomp.dir/logger.cpp.o.requires
+CMakeFiles/lmcomp.dir/requires: CMakeFiles/lmcomp.dir/snapshot.cpp.o.requires
 CMakeFiles/lmcomp.dir/requires: CMakeFiles/lmcomp.dir/SHMessage.cpp.o.requires
 
 .PHONY : CMakeFiles/lmcomp.dir/requires

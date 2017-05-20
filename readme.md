@@ -75,8 +75,8 @@ _____
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
-| Cliente         | Dividir mensagens grandes entre servidores, diferenciar pgithubedidos de leitura de escrita.
-| Servidor        | Atender pedidos de leitura e escrita. Log de operações em disco (opcional)
+| Cliente         | Dividir mensagens grandes entre servidores, construir pedidos de leitura e escrita.
+| Servidor        | Atender pedidos de leitura e escrita. Salvar log de operações em disco (opcional)
 | Comunicação     | Comunicação via rede entre processos de snapshot
 | Concorrência    | Testar concorrência com ipc implementado
-| Snapshot        | Lê memória compartilhada, envia para master (!master), recebe snapshots (master), salva em disco (master)
+| Snapshot        | Lê memória compartilhada, envia para master, (master) recebe snapshots, (master) salva em disco

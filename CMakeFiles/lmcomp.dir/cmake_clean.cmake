@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lmcomp.dir/loader.cpp.o"
   "CMakeFiles/lmcomp.dir/sma.cpp.o"
-  "CMakeFiles/lmcomp.dir/logger.cpp.o"
+  "CMakeFiles/lmcomp.dir/snapshot.cpp.o"
   "CMakeFiles/lmcomp.dir/SHMessage.cpp.o"
   "liblmcomp.pdb"
   "liblmcomp.a"

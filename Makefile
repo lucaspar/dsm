@@ -230,33 +230,6 @@ loader.cpp.s:
 	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/loader.cpp.s
 .PHONY : loader.cpp.s
 
-logger.o: logger.cpp.o
-
-.PHONY : logger.o
-
-# target to build an object file
-logger.cpp.o:
-	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/logger.cpp.o
-.PHONY : logger.cpp.o
-
-logger.i: logger.cpp.i
-
-.PHONY : logger.i
-
-# target to preprocess a source file
-logger.cpp.i:
-	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/logger.cpp.i
-.PHONY : logger.cpp.i
-
-logger.s: logger.cpp.s
-
-.PHONY : logger.s
-
-# target to generate assembly for a file
-logger.cpp.s:
-	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/logger.cpp.s
-.PHONY : logger.cpp.s
-
 server.o: server.cpp.o
 
 .PHONY : server.o
@@ -311,6 +284,33 @@ sma.cpp.s:
 	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/sma.cpp.s
 .PHONY : sma.cpp.s
 
+snapshot.o: snapshot.cpp.o
+
+.PHONY : snapshot.o
+
+# target to build an object file
+snapshot.cpp.o:
+	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/snapshot.cpp.o
+.PHONY : snapshot.cpp.o
+
+snapshot.i: snapshot.cpp.i
+
+.PHONY : snapshot.i
+
+# target to preprocess a source file
+snapshot.cpp.i:
+	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/snapshot.cpp.i
+.PHONY : snapshot.cpp.i
+
+snapshot.s: snapshot.cpp.s
+
+.PHONY : snapshot.s
+
+# target to generate assembly for a file
+snapshot.cpp.s:
+	$(MAKE) -f CMakeFiles/lmcomp.dir/build.make CMakeFiles/lmcomp.dir/snapshot.cpp.s
+.PHONY : snapshot.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -331,15 +331,15 @@ help:
 	@echo "... loader.o"
 	@echo "... loader.i"
 	@echo "... loader.s"
-	@echo "... logger.o"
-	@echo "... logger.i"
-	@echo "... logger.s"
 	@echo "... server.o"
 	@echo "... server.i"
 	@echo "... server.s"
 	@echo "... sma.o"
 	@echo "... sma.i"
 	@echo "... sma.s"
+	@echo "... snapshot.o"
+	@echo "... snapshot.i"
+	@echo "... snapshot.s"
 .PHONY : help
 
 

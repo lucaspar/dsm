@@ -191,9 +191,6 @@
 		<Unit filename="/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h">
 			<Option target="lmcomp"/>
 		</Unit>
-		<Unit filename="/home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp">
-			<Option target="lmcomp"/>
-		</Unit>
 		<Unit filename="/home/lucas/work/furg/distribuidos_sistemas/dsm/server.cpp">
 			<Option target="server"/>
 		</Unit>
@@ -201,6 +198,9 @@
 			<Option target="lmcomp"/>
 		</Unit>
 		<Unit filename="/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h">
+			<Option target="lmcomp"/>
+		</Unit>
+		<Unit filename="/home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp">
 			<Option target="lmcomp"/>
 		</Unit>
 		<Unit filename="/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeLists.txt">
