@@ -3,7 +3,7 @@
 
 ---
 
-#### 1. Requisitos do sistema
+### 1. Requisitos do sistema
 
 * A comunicação cliente-servidor é feita por sockets (TCP ou UDP);
 * O processo servidor deve atender requisições simultaneamente (threads);
@@ -17,7 +17,7 @@
 * Há um processo de snapshot em cada máquina que disponibiliza um segmento de memória;
 * Um dos processos de snapshot solicita o conteúdo aos demais e escreve um arquivo consolidado;
 
-#### 2. Elementos do projeto
+### 2. Elementos do projeto
 
 A. Processos serviço (disponibilizam a memória compartilhada aos clientes)
 * Acesso ao arquivo de configuração
@@ -49,9 +49,9 @@ D. Arquivo de configuração (configurações do sistema - mcomp.cfg)
 
 _____
 
-#### 3. Desenvolvimento
+### 3. Desenvolvimento
 
-##### Requisitos
+#### Requisitos
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
@@ -59,10 +59,9 @@ _____
 | Servidor        | Ler .config, operações em memória compartilhada (IPC), log
 | Comunicação     | Servidor <-> cliente, snapshot -> snapshot master
 | Concorrência    | Habilitar concorrência no processo servidor
-| Snapshot        | Ler .config, ler memória compartilhada (IPC)
-| Snapshot master | Combina snaps em único arquivo no disco
+| Snapshot        | Ler .config, ler memória compartilhada (IPC), combinar snaps em único arquivo no disco
 
-##### Done
+#### Done
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
@@ -72,7 +71,7 @@ _____
 | Concorrência    | Abre nova thread para cada conexão
 | Snapshot        | Criado processo
 
-##### To do
+#### To do
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
