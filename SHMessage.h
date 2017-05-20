@@ -11,11 +11,16 @@ using namespace std;
 
 class SHMessage {
 public:
+    SHMessage();
     SHMessage (string, int);
+
     string getMessage();
+    const char * serialize();
+    void deserialize(const char *serial);
 
 private:
     string message;
+
     int begPos;
 };
 

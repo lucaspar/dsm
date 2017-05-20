@@ -9,8 +9,12 @@
 /home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.cpp
 iostream
 -
+cstring
+-
 SHMessage.h
 /home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.h
+loader.h
+/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.h
 
 /home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.h
 string

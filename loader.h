@@ -10,14 +10,14 @@ using namespace std;
 
 class Config {
 public:
-    long sharedBytes;               // bytes of available memory in each server
+    int sharedBytes;                // bytes of available memory in each server
     unsigned int nServers;          // number of servers available
     vector<string> serverAddr;      // ip address of each server
 };
 
 void log (string logMessage);
 void log (Config config);
-long randomByte(long sharedBytes);
+int randomByte(int sharedBytes);
 Config readConfig();
 
 #endif //PROJECT_LOADER_H

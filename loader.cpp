@@ -31,7 +31,7 @@ Config readConfig() {
 
     // Build object
     Config config;
-    config.sharedBytes = stol(lines[0]);
+    config.sharedBytes = stoi(lines[0]);
     config.nServers = (unsigned int) stoi(lines[1]);
     for(vector<string>::size_type k=2; k!=2+config.nServers; k++){
         config.serverAddr.push_back( lines[k] );
@@ -46,13 +46,14 @@ Config readConfig() {
 // Prints log messages to stdout
 void log (Config config) {
     ostringstream ss;
-    ss << "Config file recv:" << endl;
+    ss << "_________________________________\nConfig file:" << endl;
     ss << "\tMemory size (bytes):\t" << config.sharedBytes << endl;
     ss << "\tNumber of servers:\t\t" << config.nServers << endl;
     ss << "\tServers' addresses:" << endl;
     for(auto& v : config.serverAddr) {
         ss << "\t\t" << v << endl;
     }
+    ss << "_________________________________\n";
     log(ss.str());
 }
 
@@ -60,11 +61,11 @@ void log (string logMessage) {
     cout << logMessage << endl;
 }
 
-long randomByte (long sharedBytes) {
+int randomByte (int sharedBytes) {
 
     std::random_device rd;     // only used once to initialise (seed) engine
     std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
-    std::uniform_int_distribution<long> uni(0,sharedBytes); // guaranteed unbiased
+    std::uniform_int_distribution<int> uni(0,sharedBytes); // guaranteed unbiased
 
     return uni(rng);
 };

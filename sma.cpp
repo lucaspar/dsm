@@ -23,13 +23,7 @@
 using namespace std;
 
 // SEND MESSAGE TO SERVERS
-void SMA::send(string address, long begPos, string message) {
-
-    // log message
-    ostringstream ss;
-    ss << "Writing message to " << address << " at position " << begPos << endl;
-    log(ss.str());
-
+void SMA::send(string address, int begPos, string message) {
 
     // configure socket
     struct sockaddr_in addr;
@@ -53,10 +47,17 @@ void SMA::send(string address, long begPos, string message) {
     // build message
     SHMessage msg = SHMessage(message, begPos);
 
-    // send to server
-    log("Message from server = " + msg.getMessage());
-    write(sockfd, &msg, 1);
-    read(sockfd, &msg, 1);
+    const char *serial = msg.serialize();
+
+    // log message
+    ostringstream ss;
+    ss << "Writing '"+ msg.getMessage() + "' to server " << address << " at position #" << begPos << endl;
+    log(ss.str());
+
+    size_t totalLength = 2*sizeof(int) + msg.getMessage().size();       // totalLength = begPos + msgLen + message.size()
+
+    write(sockfd, &totalLength, sizeof(size_t));            // send length of total message
+    write(sockfd, serial, totalLength * sizeof(char));      // send message
 
     // close socket and return
     close(sockfd);
@@ -64,18 +65,30 @@ void SMA::send(string address, long begPos, string message) {
 
 };
 
-void tasker(int client_sockfd, char ch) {
+void tasker(int client_sockfd, SHMessage msg) {
 
-    log("Thread is stable, resuming process");
-
+    log("\tThread created");
     sleep(1);
 
-    read(client_sockfd, &ch, 1);
-    ch++;
-    write(client_sockfd, &ch, 1);
+    // read size
+    size_t totalLength = 0;
+    read(client_sockfd, &totalLength, sizeof(size_t));
+
+    // read data
+    char *serial = (char *) malloc(totalLength * sizeof(char));
+    read(client_sockfd, serial, totalLength);
+
+    // log
+    log("\tRead message of " + to_string(totalLength) + " bytes from client");
+
+    // deserialize
+    msg.deserialize((const char *) serial);
+    string read_msg = "Message read by server.";
+
+    //write(client_sockfd, &read_msg, read_msg.length());
     close(client_sockfd);
 
-    log("Successfully finished communication\nThis thread will be terminated.");
+    log("\tThread finished");
 }
 
 // READ FROM CLIENTS
@@ -91,7 +104,6 @@ void SMA::recv() {
     socklen_t server_len, client_len;
     struct sockaddr_in server_address;
     struct sockaddr_in client_address;
-    char ch;
 
     // Set socket params
     server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -110,30 +122,29 @@ void SMA::recv() {
     log("NEW SERVER: " + string(server_address_string));
 
     // Receive from clients
-    vector<thread> th_taskers;
-    while(th_taskers.size() < 3) {
-        log("Server waiting");
+    //vector<thread> th_taskers;
+    thread th_array[300];
+    for(int i=0; i<300; i++){
+
+        log("[Server] Waiting for connection");
         client_len = sizeof(client_address);
         client_sockfd = accept(server_sockfd,(struct sockaddr *)&client_address, &client_len);
 
         // Logging
         char client_address_string[] = "";
         inet_ntop(AF_INET, &(client_address.sin_addr), client_address_string, INET_ADDRSTRLEN);
-        log("Connected to " + string(client_address_string) + "\t:: FIRING NEW THREAD, PLEASE STAND BACK ::" );
+        log("[Server] Connected to " + string(client_address_string) + "\tNew thread incoming..." );
 
         // FIRING THREAD
-        thread th_tasker(tasker, client_sockfd, ch);
-        th_taskers.push_back(move(th_tasker));
-
+        SHMessage msg = SHMessage();
+        th_array[i] = thread(tasker, client_sockfd, msg);
+        //th_taskers.push_back(move(th_tasker));
     }
 
-    // Joining threads -- yielding stack smashing detection (like buffer overflow or smthg)
-    auto currentThread = th_taskers.begin();
-    while (currentThread != th_taskers.end()) {
-        currentThread->join();
-        currentThread++;
+    // Joining threads
+    for(int i=0; i<300; i++){
+        th_array[i].join();
     }
-
 }
 
 // Allocates shared memory using IPC
@@ -159,7 +170,7 @@ void SMA::byteMe(size_t sharedSize) {
 
 };
 
-// Clear allocated memory
+// Clear allocated memory with null characters
 void SMA::clearMemory() {
     char *s;
     for (s = this->shm; s - shm < shmsz; s++){

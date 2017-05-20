@@ -3,6 +3,7 @@
 
 CMakeFiles/lmcomp.dir/SHMessage.cpp.o: SHMessage.cpp
 CMakeFiles/lmcomp.dir/SHMessage.cpp.o: SHMessage.h
+CMakeFiles/lmcomp.dir/SHMessage.cpp.o: loader.h
 
 CMakeFiles/lmcomp.dir/loader.cpp.o: loader.cpp
 CMakeFiles/lmcomp.dir/loader.cpp.o: loader.h

@@ -43,10 +43,10 @@ RM = /home/lucas/installed/clion/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lucas/work/furg/distribuidos_sistemas/trabalho1
+CMAKE_SOURCE_DIR = /home/lucas/work/furg/distribuidos_sistemas/dsm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lucas/work/furg/distribuidos_sistemas/trabalho1
+CMAKE_BINARY_DIR = /home/lucas/work/furg/distribuidos_sistemas/dsm
 
 # Include any dependencies generated for this target.
 include CMakeFiles/lmcomp.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/lmcomp.dir/flags.make
 
 CMakeFiles/lmcomp.dir/loader.cpp.o: CMakeFiles/lmcomp.dir/flags.make
 CMakeFiles/lmcomp.dir/loader.cpp.o: loader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lmcomp.dir/loader.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/loader.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lmcomp.dir/loader.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/loader.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.cpp
 
 CMakeFiles/lmcomp.dir/loader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmcomp.dir/loader.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.cpp > CMakeFiles/lmcomp.dir/loader.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.cpp > CMakeFiles/lmcomp.dir/loader.cpp.i
 
 CMakeFiles/lmcomp.dir/loader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmcomp.dir/loader.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.cpp -o CMakeFiles/lmcomp.dir/loader.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.cpp -o CMakeFiles/lmcomp.dir/loader.cpp.s
 
 CMakeFiles/lmcomp.dir/loader.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/lmcomp.dir/loader.cpp.o.provides.build: CMakeFiles/lmcomp.dir/loader.
 
 CMakeFiles/lmcomp.dir/sma.cpp.o: CMakeFiles/lmcomp.dir/flags.make
 CMakeFiles/lmcomp.dir/sma.cpp.o: sma.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lmcomp.dir/sma.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/sma.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lmcomp.dir/sma.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/sma.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp
 
 CMakeFiles/lmcomp.dir/sma.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmcomp.dir/sma.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.cpp > CMakeFiles/lmcomp.dir/sma.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp > CMakeFiles/lmcomp.dir/sma.cpp.i
 
 CMakeFiles/lmcomp.dir/sma.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmcomp.dir/sma.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.cpp -o CMakeFiles/lmcomp.dir/sma.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp -o CMakeFiles/lmcomp.dir/sma.cpp.s
 
 CMakeFiles/lmcomp.dir/sma.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/lmcomp.dir/sma.cpp.o.provides.build: CMakeFiles/lmcomp.dir/sma.cpp.o
 
 CMakeFiles/lmcomp.dir/logger.cpp.o: CMakeFiles/lmcomp.dir/flags.make
 CMakeFiles/lmcomp.dir/logger.cpp.o: logger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lmcomp.dir/logger.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/logger.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/trabalho1/logger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lmcomp.dir/logger.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/logger.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp
 
 CMakeFiles/lmcomp.dir/logger.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmcomp.dir/logger.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/trabalho1/logger.cpp > CMakeFiles/lmcomp.dir/logger.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp > CMakeFiles/lmcomp.dir/logger.cpp.i
 
 CMakeFiles/lmcomp.dir/logger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmcomp.dir/logger.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/trabalho1/logger.cpp -o CMakeFiles/lmcomp.dir/logger.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp -o CMakeFiles/lmcomp.dir/logger.cpp.s
 
 CMakeFiles/lmcomp.dir/logger.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/lmcomp.dir/logger.cpp.o.provides.build: CMakeFiles/lmcomp.dir/logger.
 
 CMakeFiles/lmcomp.dir/SHMessage.cpp.o: CMakeFiles/lmcomp.dir/flags.make
 CMakeFiles/lmcomp.dir/SHMessage.cpp.o: SHMessage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lmcomp.dir/SHMessage.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/SHMessage.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lmcomp.dir/SHMessage.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/SHMessage.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.cpp
 
 CMakeFiles/lmcomp.dir/SHMessage.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmcomp.dir/SHMessage.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.cpp > CMakeFiles/lmcomp.dir/SHMessage.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.cpp > CMakeFiles/lmcomp.dir/SHMessage.cpp.i
 
 CMakeFiles/lmcomp.dir/SHMessage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmcomp.dir/SHMessage.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.cpp -o CMakeFiles/lmcomp.dir/SHMessage.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.cpp -o CMakeFiles/lmcomp.dir/SHMessage.cpp.s
 
 CMakeFiles/lmcomp.dir/SHMessage.cpp.o.requires:
 
@@ -169,7 +169,7 @@ liblmcomp.a: CMakeFiles/lmcomp.dir/logger.cpp.o
 liblmcomp.a: CMakeFiles/lmcomp.dir/SHMessage.cpp.o
 liblmcomp.a: CMakeFiles/lmcomp.dir/build.make
 liblmcomp.a: CMakeFiles/lmcomp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library liblmcomp.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library liblmcomp.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/lmcomp.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lmcomp.dir/link.txt --verbose=$(VERBOSE)
 
@@ -190,6 +190,6 @@ CMakeFiles/lmcomp.dir/clean:
 .PHONY : CMakeFiles/lmcomp.dir/clean
 
 CMakeFiles/lmcomp.dir/depend:
-	cd /home/lucas/work/furg/distribuidos_sistemas/trabalho1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lucas/work/furg/distribuidos_sistemas/trabalho1 /home/lucas/work/furg/distribuidos_sistemas/trabalho1 /home/lucas/work/furg/distribuidos_sistemas/trabalho1 /home/lucas/work/furg/distribuidos_sistemas/trabalho1 /home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/lmcomp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lucas/work/furg/distribuidos_sistemas/dsm && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lucas/work/furg/distribuidos_sistemas/dsm /home/lucas/work/furg/distribuidos_sistemas/dsm /home/lucas/work/furg/distribuidos_sistemas/dsm /home/lucas/work/furg/distribuidos_sistemas/dsm /home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lmcomp.dir/depend
 

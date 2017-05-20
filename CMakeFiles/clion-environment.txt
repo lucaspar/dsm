@@ -1,2 +1,2 @@
 Options: 
-CMake: 3.7.1@/home/lucas/installed/clion/bin/cmake/bin/cmake
+CMake: 3.7.2@/home/lucas/installed/clion/bin/cmake/bin/cmake

@@ -14,7 +14,7 @@ using namespace std;
 class SMA {
 
 public:
-    void send(string address, long begPos, string message);     // send @message to server at @address start writing at position @begPos
+    void send(string address, int begPos, string message);      // send @message to server at @address start writing at position @begPos
     void recv();                                                // receive a message from a client
     void byteMe(size_t SHMSZ);                                  // locally allocate @shmsz bytes of interprocess memory
 

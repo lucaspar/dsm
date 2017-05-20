@@ -54,29 +54,29 @@ D. Arquivo de configuração (configurações do sistema - mcomp.cfg)
 _____
 REQS:
 
-i.      Criar o processo cliente (ler .config, estruturas de dados, escolha do servidor e divisão)
-ii.     Criar o processo serviço (ler .config, operações em memória compartilhada com semáforos, log)
-iii.    Criar comunicação cliente-serviço (sockets, lidar com retorno (falha/sucesso))
-iv.     Múltiplas threads (habilitar concorrência no processo de serviço)
-v.      Criar o processo snapshot (ler .config, ler memória compartilhada (com. entre processos))
-vi.     Combinar snapshots e salvar em disco no processo principal (sockets again)
+i.      Criar o processo cliente            (ler .config, estruturas de dados, escolha do servidor e divisão)
+ii.     Criar o processo serviço            (ler .config, operações em memória compartilhada (IPC), log)
+iii.    Criar comunicação cliente-serviço   (sockets)
+iv.     Múltiplas threads                   (habilitar concorrência no processo de serviço)
+v.      Criar o processo snapshot           (ler .config, ler memória compartilhada (IPC))
+vi.     Snapshot master                     (combina snaps em único arquivo no disco)
 
 _____
 DONE:
 
-i.      Processo cliente (lê .config, escolhe servidor, envia dados para salvar)
-ii.     Processo servidor (lê .config, opera sobre memória compartilhada)
-iii.    Comunicação entre servidor e clientes
-iv.     Concorrência - servidor cria nova thread para cada conexão
-v.      - NONE -
-vi.     - NONE -
+i.      Cliente         (lê .config, escolhe servidor, data struct, serializa, envia para servidor)
+ii.     Servidor        (lê .config, recebe dados, de-serializa, opera sobre memória compartilhada)
+iii.    Comunicação     (sockets entre cliente e servidor)
+iv.     Concorrência    (nova thread para cada conexão)
+v.      Snapshot        -NONE-
+vi.     Snapshot master -NONE-
 
 _____
 TODO:
 
-i.      Enviar estrutura de dado sobre a rede, dividir mensagens grandes entre servidores
-ii.     Salvar estrutura recebida na memória compartilhada, salvar log de operações em arquivo
-iii.    - COMPLETED -
-iv.     Testar concorrência, corrigir "stack smashing" when joining the thread vector
-v.      Criar processo snapshot, ler memória compartilhada
-vi.     Snapshot principal recebe conteúdo dos outros e salva em disco
+i.      Cliente         Dividir mensagens grandes entre servidores, diferenciar pgithubedidos de leitura de escrita.
+ii.     Servidor        Atender pedidos de leitura e escrita.     Salvar log de operações em arquivo (opcional)
+iii.    Comunicação     -COMPLETED-
+iv.     Concorrência    Testar concorrência com ipc implementado
+v.      Snapshot        Lê memória compartilhada e envia para master (caso não seja o master)
+vi.     Snapshot master Recebe conteúdo dos outros, salva em disco

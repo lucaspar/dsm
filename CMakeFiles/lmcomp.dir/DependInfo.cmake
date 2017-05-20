@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/SHMessage.cpp" "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/lmcomp.dir/SHMessage.cpp.o"
-  "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/loader.cpp" "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/lmcomp.dir/loader.cpp.o"
-  "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/logger.cpp" "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/lmcomp.dir/logger.cpp.o"
-  "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/sma.cpp" "/home/lucas/work/furg/distribuidos_sistemas/trabalho1/CMakeFiles/lmcomp.dir/sma.cpp.o"
+  "/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/SHMessage.cpp.o"
+  "/home/lucas/work/furg/distribuidos_sistemas/dsm/loader.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/loader.cpp.o"
+  "/home/lucas/work/furg/distribuidos_sistemas/dsm/logger.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/logger.cpp.o"
+  "/home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp" "/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir/sma.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
