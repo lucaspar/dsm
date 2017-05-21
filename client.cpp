@@ -44,6 +44,7 @@ int main (int argc, char **argv) {
     else {                                                  // no arguments, write "I'm sorry dave to random position"
         int totalShared = config.sharedBytes * config.nServers;
         start = randomByte((int) (totalShared - msg.size() - 2));   // pick a random possible start position
+        start = 1014;
         msg = "I'm sorry, Dave";
         message = SHMessage(msg, start);                    // create message to send over network
     }
@@ -60,8 +61,10 @@ void serverSolver(Config config, SHMessage message) {
 
     // Select servers (by index) to send data
     int begServerIndex = message.begPos / (config.sharedBytes - 1);
-    int endServerIndex = (int) (begServerIndex + (message.getMessage().size() / (config.sharedBytes - 1)));
+    int effectiveLength = (int) ((message.begPos % config.sharedBytes) + message.getMessage().size());
+    int endServerIndex = begServerIndex + ( effectiveLength / config.sharedBytes );
 
+    log("ENDSERVERINDEX: " + to_string(endServerIndex));
     SMA interface;
     SHMessage partial;
 
@@ -83,7 +86,7 @@ void serverSolver(Config config, SHMessage message) {
         }
         else if (s==endServerIndex) {
             partial_start = 0;
-            partial_length = message.readLen % config.sharedBytes;
+            partial_length = remaining_bytes % config.sharedBytes;
         }
         else {
             partial_start = 0;
@@ -91,14 +94,34 @@ void serverSolver(Config config, SHMessage message) {
         }
 
         string address = config.serverAddr[s];
+        remaining_bytes -= partial_length;
 
         if(message.operation == 'r') {
+
+            // create object to send over network
             partial = SHMessage(partial_start, partial_length);
             log("READ " + address + " -> " + to_string(partial_start) + " to " +
                 to_string(partial_start + partial_length));
         }
+
         else if(message.operation == 'w') {
-            partial = SHMessage(message.getMessage(), partial_start);
+
+            // trim the message to fit server border
+            const char *pmsg = message.getMessage().c_str();
+            char *partial_message = (char *) malloc(sizeof(char) * partial_length);
+            for (int k=0; k<partial_length; k++){
+                partial_message[k] = pmsg[k];
+            }
+            partial_message[partial_length] = '\0';
+
+            // update message with the remaining substring only
+            string remaining_string = message.getMessage().substr((unsigned long) (partial_length));
+            log("Remaining string: " + remaining_string);
+            message.setMessage( remaining_string );
+
+
+            // create object to send over network
+            partial = SHMessage(string(partial_message), partial_start);
             log("WRITE " + address + " -> " + to_string(partial_start) + " to " +
                 to_string(partial_start + partial_length));
         }

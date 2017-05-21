@@ -12,7 +12,7 @@ public:
     SHMessage (int, int);       // reading from memory purposes (start, length)
 
     string getMessage();
-    //void setMessage(string);
+    void setMessage(string);
 
     const char * serialize();               // serialize to send over the network
     void deserialize(const char *serial);   // deserialize to retrieve data and save

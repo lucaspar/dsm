@@ -29,11 +29,11 @@ SHMessage::SHMessage () {}
 string SHMessage::getMessage() {
     return this->message;
 }
-/*
+
 void SHMessage::setMessage(string content) {
     this->message = content;
 }
-*/
+
 // serialize SHMessage object returning byte array
 // format: operation (1 byte) + readLen (4 bytes) + begPos (4 bytes) + msgLen (4 bytes) + msg (msgLen bytes)
 const char * SHMessage::serialize() {

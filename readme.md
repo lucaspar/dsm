@@ -67,8 +67,8 @@ _____
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
-| Cliente         | Lê .config, divide mensagem, escolhe servidor, monta estrutura de dados, serializa, envia para servidor
-| Servidor        | Lê .config, recebe dados, desserializa, salva em memória compartilhada
+| Cliente         | Lê .config, divide mensagem, escolhe servidor, monta estrutura de dados, serializa, envia para servidor, leitura e escrita
+| Servidor        | Lê .config, recebe dados, desserializa, salva em memória compartilhada, responde a leituras e escritas do cliente
 | Comunicação     | Sockets entre cliente e servidor
 | Concorrência    | Abre nova thread para cada conexão
 | Snapshot        | Criado processo
@@ -77,8 +77,8 @@ _____
 
 | Dominio         | Tarefas                                                             |
 | --------------- | ------------------------------------------------------------------- |
-| Cliente         | Construir pedidos de leitura e escrita.
-| Servidor        | Atender pedidos de leitura e escrita. Salvar log de operações em disco (opcional)
+| Cliente         | -
+| Servidor        | Salvar log de operações em disco (opcional)
 | Comunicação     | Comunicação via rede entre processos de snapshot
 | Concorrência    | -
 | Snapshot        | Lê memória compartilhada, envia para master, (master) recebe snapshots, (master) salva em disco
