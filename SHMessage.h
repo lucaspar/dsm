@@ -1,7 +1,3 @@
-//
-// Created by lucas on 18/05/17.
-//
-
 #ifndef PROJECT_SHMESSAGE_H
 #define PROJECT_SHMESSAGE_H
 
@@ -12,13 +8,19 @@ using namespace std;
 class SHMessage {
 public:
     SHMessage();
-    SHMessage (string, int);
+    SHMessage (string, int);    // writing to memory purposes (message, position)
+    SHMessage (int, int);       // reading from memory purposes (start, length)
 
     string getMessage();
-    const char * serialize();
-    void deserialize(const char *serial);
+    //void setMessage(string);
 
-    int begPos;
+    const char * serialize();               // serialize to send over the network
+    void deserialize(const char *serial);   // deserialize to retrieve data and save
+
+    int begPos;                 // starting position (used to retrieve and write)
+    int readLen;                // number of bytes to retrieve
+    char operation;             // 'r' for retrieve, 'w' for write: set using the constructors above
+
 private:
     string message;
 

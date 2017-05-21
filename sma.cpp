@@ -9,7 +9,6 @@
 // Local
 #include "loader.h"
 #include "sma.h"
-#include "SHMessage.h"
 
 // Sockets
 #include <sys/socket.h>
@@ -27,7 +26,7 @@
 using namespace std;
 
 // SEND MESSAGE TO SERVERS
-void SMA::send(string address, int begPos, string message) {
+void SMA::send(string address, SHMessage msg) {
 
     // configure socket
     struct sockaddr_in addr;
@@ -48,20 +47,33 @@ void SMA::send(string address, int begPos, string message) {
         exit(1);
     }
 
-    // build message
-    SHMessage msg = SHMessage(message, begPos);
-
-    const char *serial = msg.serialize();
 
     // log message
     ostringstream ss;
-    ss << "Writing '"+ msg.getMessage() + "' to server " << address << " at position #" << begPos << endl;
+    if(msg.operation == 'r'){
+        ss << "Reading "+ to_string(msg.readLen) + " bytes from server " << address << " at position #" << msg.begPos << endl;
+    }
+    else if(msg.operation == 'w'){
+        ss << "Writing '"+ msg.getMessage() + "' to server " << address << " at position #" << msg.begPos << endl;
+    }
+    else {
+        ss << "Invalid operation" << endl;
+    }
     log(ss.str());
 
-    size_t totalLength = 2*sizeof(int) + msg.getMessage().size();       // totalLength = begPos + msgLen + message.size()
 
+    size_t totalLength = sizeof(char) + 3*sizeof(int) + msg.getMessage().size()*sizeof(char);
+    // totalLength = operation + readLen + begPos + msgLen + message.size()
+
+    const char *serial = msg.serialize();
     write(sockfd, &totalLength, sizeof(size_t));            // send length of total message
     write(sockfd, serial, totalLength * sizeof(char));      // send message
+
+    if(msg.operation == 'r') {
+        char *content = (char *) malloc(msg.readLen * sizeof(char));
+        read(sockfd, content, msg.readLen * sizeof(char));
+        log("Content read: '" + string(content) + "'");
+    }
 
     // close socket and return
     close(sockfd);
@@ -74,28 +86,40 @@ void tasker(int client_sockfd, SHMessage msg, SMA * interface) {
     log("\tThread created");
     sleep(1);
 
-    // read size
+    // retrieve size
     size_t totalLength = 0;
     read(client_sockfd, &totalLength, sizeof(size_t));
 
-    // read data
+    // retrieve data
     char *serial = (char *) malloc(totalLength * sizeof(char));
     read(client_sockfd, serial, totalLength);
     log("\tRead message of " + to_string(totalLength) + " bytes from client");
 
     // deserialize
     msg.deserialize((const char *) serial);
-    string read_msg = "Message read by server.";
+    string read_msg = "Message retrieve by server.";
 
-    // save message to shared memory
-    interface->save(msg.getMessage().c_str(), msg.begPos, (int) msg.getMessage().size());
+    // identify type of operation
+    switch (msg.operation) {
+        case 'r':           // retrieve content from shared memory
+        {
+            log("\tClient reading from memory");
+            char *content = (char *) malloc(msg.readLen * sizeof(char));
+            interface->retrieve(msg.begPos, msg.readLen, content);          // retrieve from memory
+            write(client_sockfd, content, msg.readLen * sizeof(char));      // send back to client
+            break;
+        }
+        case 'w':           // save message to shared memory
+            log("\tClient writing to memory");
+            interface->save(msg.getMessage().c_str(), msg.begPos, (int) msg.getMessage().size());
+            break;
+        default:
+            log("\tClient requested invalid operation.");
+    }
 
-    // send status to client
-    //write(client_sockfd, &read_msg, read_msg.length());
-
-    close(client_sockfd);
-
+    close(client_sockfd);       // close connection
     log("\tThread finished");
+
 }
 
 // Receive requests from clients and start new threads
@@ -146,10 +170,13 @@ void SMA::recv() {
         th_array[i] = thread(tasker, client_sockfd, msg, this);
     }
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCDFAInspection"
     // Joining threads
     for(int i=0; i<300; i++){
         th_array[i].join();
     }
+#pragma clang diagnostic pop
 }
 
 // Allocates shared memory using IPC
@@ -179,7 +206,7 @@ void SMA::byteMe(size_t sharedSize) {
 void SMA::save(const char * ptr, int localStartPos, int nbytes) {
     char *s;
     if(shmsz < localStartPos+nbytes){
-        log("ERROR @SMA::write() >>> Trying to fit "+to_string(localStartPos+nbytes)+"b in "+to_string(shmsz)+"b space.");
+        log("ERROR @SMA::save() >>> Trying to fit "+to_string(localStartPos+nbytes)+"b in "+to_string(shmsz)+"b space.");
         exit(3);
     }
     char * realStartPos = (this->shm)+localStartPos;
@@ -187,8 +214,23 @@ void SMA::save(const char * ptr, int localStartPos, int nbytes) {
         *s = *ptr;
         ptr++;
     }
-    *s = '\0';                      // null termination
+*s = '\0';                  // force null termination
     logMemory();
+}
+
+// Retrieve @length bytes of shared memory starting at @start
+void SMA::retrieve(int start, int length, char * content) {
+    if(start + length > shmsz) {
+        log("ERROR @SMA::read() >>> Trying to retrieve until position "+to_string(start+length-1)+" in "+to_string(shmsz)+"b memory.");
+    }
+    char *s;
+    printf(string("\t\tRETRIEVING from memory (" + to_string(start) + " to " + to_string(start+length) + "):\n\t\t").c_str());
+    for (s = shm+start; s-shm < start+length; s++) {
+        *content = *s;
+        printf("%c", *content);
+        content++;
+    }
+    *content = '\0';        // force null termination
 }
 
 // Clear allocated memory with null characters
@@ -200,7 +242,7 @@ void SMA::clearMemory() {
     log("Memory cleared");
 }
 
-// Prints memory to stdout for debugging
+// Print memory to stdout for debugging
 void SMA::logMemory() {
     char *s;
     for (s = shm; s - shm < shmsz; s++){
@@ -210,4 +252,5 @@ void SMA::logMemory() {
     }
     printf("\n");
 }
+
 #pragma clang diagnostic pop

@@ -46,14 +46,14 @@ Config readConfig() {
 // Prints log messages to stdout
 void log (Config config) {
     ostringstream ss;
-    ss << "_________________________________\nConfig file:" << endl;
+    ss << "____________________________________\nConfig file:" << endl;
     ss << "\tMemory size (bytes):\t" << config.sharedBytes << endl;
-    ss << "\tNumber of servers:\t\t" << config.nServers << endl;
+    ss << "\tNumber of servers:\t" << config.nServers << endl;
     ss << "\tServers' addresses:" << endl;
     for(auto& v : config.serverAddr) {
         ss << "\t\t" << v << endl;
     }
-    ss << "_________________________________\n";
+    ss << "____________________________________\n";
     log(ss.str());
 }
 

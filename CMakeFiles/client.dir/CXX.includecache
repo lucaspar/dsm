@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
+string
+-
+
 /home/lucas/work/furg/distribuidos_sistemas/dsm/client.cpp
 iostream
 -
@@ -13,6 +17,8 @@ loader.h
 /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 sma.h
 /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
+SHMessage.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
 
 /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 vector
@@ -29,4 +35,6 @@ loader.h
 /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 sma.h
 /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
+SHMessage.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
 

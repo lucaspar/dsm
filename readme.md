@@ -1,7 +1,7 @@
 ## Distributed Shared Memory
 ###### Aplicação distribuída cliente-servidor para compartilhamento de memória em rede
 
----
+_____
 
 ### 1. Requisitos do sistema
 
@@ -16,6 +16,8 @@
 * Os snapshots salvam cópias do estado global da memória em disco;
 * Há um processo de snapshot em cada máquina que disponibiliza um segmento de memória;
 * Um dos processos de snapshot solicita o conteúdo aos demais e escreve um arquivo consolidado;
+
+_____
 
 ### 2. Elementos do projeto
 
