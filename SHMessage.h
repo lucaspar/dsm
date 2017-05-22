@@ -15,7 +15,7 @@ public:
     void setMessage(string);
 
     const char * serialize();               // serialize to send over the network
-    void deserialize(const char *serial);   // deserialize to retrieve data and save
+    void deserialize(const char *serial);   // deserialize to retrieve snap and save
 
     int begPos;                 // starting position (used to retrieve and write)
     int readLen;                // number of bytes to retrieve

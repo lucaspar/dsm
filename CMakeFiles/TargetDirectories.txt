@@ -1,5 +1,6 @@
-/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/edit_cache.dir
-/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/client.dir
-/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/server.dir
-/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir
 /home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/rebuild_cache.dir
+/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/edit_cache.dir
+/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/lmcomp.dir
+/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/snapshot.dir
+/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/server.dir
+/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles/client.dir

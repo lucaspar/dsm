@@ -11,7 +11,7 @@ int main() {
     // Allocate shared memory
     interface.byteMe((size_t) config.sharedBytes);
 
-    // Clear memory
+    // Clear and log memory
     interface.clearMemory();
     interface.logMemory();
 

@@ -15,9 +15,9 @@ public:
     vector<string> serverAddr;      // ip address of each server
 };
 
-void log (string logMessage);
-void log (Config config);
-int randomByte(int sharedBytes);
+void log (string logMessage);       // print @logMessage to stdout
+void log (Config config);           // print @config object to stdout
+int randomByte(int sharedBytes);    // return random number between 0 and @sharedBytes
 Config readConfig();
 
 #endif //PROJECT_LOADER_H

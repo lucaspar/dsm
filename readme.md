@@ -69,9 +69,9 @@ _____
 | --------------- | ------------------------------------------------------------------- |
 | Cliente         | Lê .config, divide mensagem, escolhe servidor, monta estrutura de dados, serializa, envia para servidor, leitura e escrita
 | Servidor        | Lê .config, recebe dados, desserializa, salva em memória compartilhada, responde a leituras e escritas do cliente
-| Comunicação     | Sockets entre cliente e servidor
+| Comunicação     | Comunicação entre cliente e servidor, comunicação entre processos de snapshot
 | Concorrência    | Abre nova thread para cada conexão
-| Snapshot        | Criado processo
+| Snapshot        | Lê memória compartilhada, envia para master, (master) recebe snapshots, (master) salva em disco
 
 #### To do
 
@@ -79,6 +79,6 @@ _____
 | --------------- | ------------------------------------------------------------------- |
 | Cliente         | -
 | Servidor        | Salvar log de operações em disco (opcional)
-| Comunicação     | Comunicação via rede entre processos de snapshot
+| Comunicação     | -
 | Concorrência    | -
-| Snapshot        | Lê memória compartilhada, envia para master, (master) recebe snapshots, (master) salva em disco
+| Snapshot        | -

@@ -47,7 +47,6 @@ void SMA::send(string address, SHMessage msg) {
         exit(1);
     }
 
-
     // log message
     ostringstream ss;
     if(msg.operation == 'r'){
@@ -57,7 +56,8 @@ void SMA::send(string address, SHMessage msg) {
         ss << "Writing '"+ msg.getMessage() + "' to server " << address << " at position #" << msg.begPos << endl;
     }
     else {
-        ss << "Invalid operation" << endl;
+        ss << "ERROR @SMA::send() >>> Invalid operation '" << msg.operation << "'" << endl;
+        exit(2);
     }
     log(ss.str());
 
@@ -90,7 +90,7 @@ void tasker(int client_sockfd, SHMessage msg, SMA * interface) {
     size_t totalLength = 0;
     read(client_sockfd, &totalLength, sizeof(size_t));
 
-    // retrieve data
+    // retrieve snap
     char *serial = (char *) malloc(totalLength * sizeof(char));
     read(client_sockfd, serial, totalLength);
     log("\tRead message of " + to_string(totalLength) + " bytes from client");
@@ -191,7 +191,7 @@ void SMA::byteMe(size_t sharedSize) {
         exit(1);
     }
 
-    // Attach the segment to our data space
+    // Attach the segment to our snap space
     if ((shm = (char *) shmat(shmid, NULL, 0)) == (char *) -1) {
         perror("ERROR @SMA::byteMe() >>> SHMAT");
         exit(2);

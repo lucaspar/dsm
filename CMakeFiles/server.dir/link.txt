@@ -1,1 +1,1 @@
-/usr/bin/c++    -std=c++11 -pthread -g   CMakeFiles/server.dir/server.cpp.o  -o server -rdynamic liblmcomp.a 
+/usr/bin/c++    -std=c++11 -pthread -fno-stack-protector -g   CMakeFiles/server.dir/server.cpp.o  -o server -rdynamic liblmcomp.a 

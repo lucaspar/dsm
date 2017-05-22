@@ -75,6 +75,26 @@ SHMessage.h
 /home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
 
 /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp
+cstdio
+-
+cstdlib
+-
+zconf.h
+-
 loader.h
 /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+sys/shm.h
+-
+ifaddrs.h
+-
+cstring
+-
+thread
+-
 
