@@ -8,7 +8,7 @@ add_executable(client client.cpp)
 add_executable(server server.cpp)
 add_executable(snapshot snapshot.cpp)
 
-add_library(lmcomp loader.h loader.cpp sma.cpp sma.h snapshot.cpp SHMessage.cpp SHMessage.h)
+add_library(lmcomp loader.h loader.cpp sma.cpp sma.h snapshot.cpp SHMessage.cpp SHMessage.h semun.h)
 target_link_libraries(client lmcomp)
 target_link_libraries(server lmcomp)
 target_link_libraries(snapshot lmcomp)
