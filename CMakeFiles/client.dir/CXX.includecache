@@ -13,6 +13,8 @@ string
 /home/lucas/work/furg/distribuidos_sistemas/dsm/client.cpp
 iostream
 -
+cstring
+-
 loader.h
 /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
 sma.h

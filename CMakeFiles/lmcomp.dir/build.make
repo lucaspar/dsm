@@ -108,15 +108,15 @@ CMakeFiles/lmcomp.dir/sma.cpp.o.provides.build: CMakeFiles/lmcomp.dir/sma.cpp.o
 CMakeFiles/lmcomp.dir/snapshot.cpp.o: CMakeFiles/lmcomp.dir/flags.make
 CMakeFiles/lmcomp.dir/snapshot.cpp.o: snapshot.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/work/furg/distribuidos_sistemas/dsm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lmcomp.dir/snapshot.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lmcomp.dir/snapshot.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -fno-stack-protector -o CMakeFiles/lmcomp.dir/snapshot.cpp.o -c /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp
 
 CMakeFiles/lmcomp.dir/snapshot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lmcomp.dir/snapshot.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp > CMakeFiles/lmcomp.dir/snapshot.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -fno-stack-protector -E /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp > CMakeFiles/lmcomp.dir/snapshot.cpp.i
 
 CMakeFiles/lmcomp.dir/snapshot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lmcomp.dir/snapshot.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp -o CMakeFiles/lmcomp.dir/snapshot.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -fno-stack-protector -S /home/lucas/work/furg/distribuidos_sistemas/dsm/snapshot.cpp -o CMakeFiles/lmcomp.dir/snapshot.cpp.s
 
 CMakeFiles/lmcomp.dir/snapshot.cpp.o.requires:
 

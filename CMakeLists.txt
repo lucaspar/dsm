@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -fno-stack-protector")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 set (appName MComp)
+set_source_files_properties( snapshot.cpp PROPERTIES COMPILE_FLAGS "-fno-stack-protector" )
 
 add_executable(client client.cpp)
 add_executable(server server.cpp)

@@ -61,9 +61,8 @@ void SMA::send(string address, SHMessage msg) {
     }
     log(ss.str());
 
-
     size_t totalLength = sizeof(char) + 3*sizeof(int) + msg.getMessage().size()*sizeof(char);
-    // totalLength = operation + readLen + begPos + msgLen + message.size()
+    // size of totalLength: operation + readLen+begPos+msgLen + message.size()
 
     const char *serial = msg.serialize();
     write(sockfd, &totalLength, sizeof(size_t));            // send length of total message
@@ -97,7 +96,7 @@ void tasker(int client_sockfd, SHMessage msg, SMA * interface) {
 
     // deserialize
     msg.deserialize((const char *) serial);
-    string read_msg = "Message retrieve by server.";
+    string read_msg = "Message retrieved by server.";
 
     // identify type of operation
     switch (msg.operation) {
@@ -150,11 +149,11 @@ void SMA::recv() {
     // Log server address
     char server_address_string[] = "";
     inet_ntop(AF_INET, &(server_address.sin_addr), server_address_string, INET_ADDRSTRLEN);
-    log("NEW SERVER: " + string(server_address_string));
+    log("NEW SERVER");
 
     // Receive from clients
-    thread th_array[300];
-    for(int i=0; true; i++){         // intentional endless loop
+    thread th_array[1000];
+    for(int i=0; i<1000; i++) {
 
         log("[Server] Waiting for connection");
         client_len = sizeof(client_address);
@@ -168,15 +167,8 @@ void SMA::recv() {
         // FIRING THREAD
         SHMessage msg = SHMessage();
         th_array[i] = thread(tasker, client_sockfd, msg, this);
+        th_array[i].detach();
     }
-
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCDFAInspection"
-    // Joining threads
-    for(int i=0; i<300; i++){
-        th_array[i].join();
-    }
-#pragma clang diagnostic pop
 }
 
 // Allocates shared memory using IPC

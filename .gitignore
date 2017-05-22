@@ -1,6 +1,7 @@
 .idea/
 snap/*.snap
 snap/*.snapshot
+CMakeCache.txt
 CMakeFiles/3.5.1/
 CMakeFiles/CMakeTmp/
 CMakeFiles/lmcomp.dir/snapshot.cpp.o

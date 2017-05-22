@@ -23,7 +23,7 @@
 #define SHMSZ   27
 #define SHMKEY  3403607790              //  0xCADEEEEE
 #define clear() printf("\033[H\033[J")  // clear console
-#define LOG     false                   // logging enabled/disabled
+#define LOG     true                    // logging enabled/disabled
 
 bool    isMaster        (const char *addr);
 char*   locateSHM       (char *shm);
@@ -33,7 +33,7 @@ int     setMasterSocket ();
 void    logMemory       (char *, int);
 void    logTime         ();
 void    snapMaster      (Config config, char * shm);
-void    snapSlave       (Config config, char * shm);
+void    snapSlave       (Config config, char * shm, unsigned int interval);
 void    receiver        (int client_sockfd, int length, string client_address);
 void    saveToFile      (char *data, int length, string basic_string);
 void    appendToFile    (string basic_string, string basicString, int length);
@@ -50,8 +50,12 @@ int main(int argc, char **argv) {
     // Call master or slave thread
     thread th;
     bool master;
-    if (argc==2) {
+    unsigned int interval = 60;                         // Interval between snaps slaves send to master
+    if (argc>1) {
         master = ( argv[1][0] == 'm' );
+        if(argc>2) {
+            interval = (unsigned int) atoi(argv[2]);
+        }
     }
     else master = isMaster( config.serverAddr[0].c_str() );
 
@@ -59,8 +63,10 @@ int main(int argc, char **argv) {
         th = thread(snapMaster, config, shm);
     }
     else {                                              // Snapshot slave process
-        th = thread(snapSlave, config, shm);
+        th = thread(snapSlave, config, shm, interval);
     }
+
+    th.detach();
 
     // Log snap forever to stdout
     while (LOG) {
@@ -68,24 +74,25 @@ int main(int argc, char **argv) {
         logTime();
         logMemory(shm, config.sharedBytes);
 
-        sleep(5);
+        sleep(3);
         clear();
     }
-
-    th.join();
-
 }
 
 // Thread do snapshot slave
-void snapSlave(Config config, char * shm) {
+void snapSlave(Config config, char * shm, unsigned int interval) {
     log("Slave thread running");
-    logMemory(shm, config.sharedBytes);
 
-    int sockfd = setSlaveSocket(config.serverAddr[0]);
+    int sockfd;
+    //logMemory(shm, config.sharedBytes);
 
-    write(sockfd, shm, (size_t) config.sharedBytes);
+    while (true) {
+        sockfd = setSlaveSocket(config.serverAddr[0]);
+        write(sockfd, shm, (size_t) config.sharedBytes);
+        close(sockfd);
+        sleep(interval);
+    }
 
-    close(sockfd);
 }
 
 // Thread do snapshot master
@@ -162,6 +169,8 @@ void appendToFile(string inputFilename, string outputFilename, int length) {
 
 // receive snap from client
 void receiver(int client_sockfd, int length, string client_address) {
+
+    log("IN THREAD");
 
     char *data = (char *) malloc(length * sizeof(char));
     read(client_sockfd, data, (size_t) length);
