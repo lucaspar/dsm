@@ -233,7 +233,6 @@ int setSlaveSocket(string address) {
     inet_pton(AF_INET, address.c_str(), &(addr.sin_addr));
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = htonl(INADDR_ANY);
     addr.sin_port = 9700;
     len = sizeof(addr);
 
