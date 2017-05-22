@@ -92,8 +92,8 @@ void serverSolver(Config config, SHMessage message) {
             partial_start = 0;
             partial_length = config.sharedBytes;
         }
-
-        string address = config.serverAddr[s];
+        
+        string address(config.serverAddr[s]);
         remaining_bytes -= partial_length;
 
         /*

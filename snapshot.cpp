@@ -286,7 +286,7 @@ char * getLocalIP(char *resultIP) {
             struct sockaddr_in *pAddr = (struct sockaddr_in *)ifa->ifa_addr;
             resultIP = inet_ntoa(pAddr->sin_addr);
             //printf("%s: %s\n", ifa->ifa_name, resultIP);
-            if (strstr(resultIP, "192.") != NULL) {       // probably local ip address
+            if (strstr(resultIP, "10.") != NULL || strstr(resultIP, "192.") != NULL) {       // probably local ip address
                 return resultIP;
             }
         }

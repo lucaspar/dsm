@@ -11,6 +11,7 @@ CMakeFiles/lmcomp.dir/loader.cpp.o
 CMakeFiles/lmcomp.dir/sma.cpp.o
  /home/lucas/work/furg/distribuidos_sistemas/dsm/SHMessage.h
  /home/lucas/work/furg/distribuidos_sistemas/dsm/loader.h
+ /home/lucas/work/furg/distribuidos_sistemas/dsm/semun.h
  /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp
  /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
 CMakeFiles/lmcomp.dir/snapshot.cpp.o

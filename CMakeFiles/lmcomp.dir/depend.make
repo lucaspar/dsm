@@ -10,6 +10,7 @@ CMakeFiles/lmcomp.dir/loader.cpp.o: loader.h
 
 CMakeFiles/lmcomp.dir/sma.cpp.o: SHMessage.h
 CMakeFiles/lmcomp.dir/sma.cpp.o: loader.h
+CMakeFiles/lmcomp.dir/sma.cpp.o: semun.h
 CMakeFiles/lmcomp.dir/sma.cpp.o: sma.cpp
 CMakeFiles/lmcomp.dir/sma.cpp.o: sma.h
 

@@ -38,6 +38,8 @@ vector
 string
 -
 
+/home/lucas/work/furg/distribuidos_sistemas/dsm/semun.h
+
 /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.cpp
 iostream
 -
@@ -61,6 +63,10 @@ sys/ipc.h
 -
 sys/shm.h
 -
+sys/sem.h
+-
+semun.h
+/home/lucas/work/furg/distribuidos_sistemas/dsm/semun.h
 
 /home/lucas/work/furg/distribuidos_sistemas/dsm/sma.h
 iostream
